@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Modal | Employee Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* body {
+            background-color: #e9f0fb;
+        }
+
+        /* Custom animation for login modal content 
+        .modal.fade .modal-dialog {
+            transform: translateY(-100px);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            background-color: #002b5c;
+            color: white;
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            background-color: #002b5c;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #001f3f;
+        }
+
+        .form-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .form-link a {
+            color: #002b5c;
+            text-decoration: none;
+        }
+
+        .form-link a:hover {
+            text-decoration: underline;
+        } */
+
+        body {
+            background-color: #e9f0fb;
+            height: 100vh;
+        }
+
+        .modal-header {
+            background-color: #002b5c;
+            color: white;
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            background-color: #002b5c;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #001f3f;
+            }
+
+        .form-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+            .form-link a {
+                color: #002b5c;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+                .form-link a:hover {
+                    text-decoration: underline;
+                }
+
+        /* Slide animation */
+        .modal.fade .modal-dialog {
+            transform: translateY(-100px);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/emphomepage.js"></script>
+</body>
+</html>

@@ -12,7 +12,19 @@ namespace Employee_System_Web.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult OrgLogin()
+        {
+            return View();
+        }
+        public ActionResult SignIn()
+        {
+            return View();
+        }
+        
+        public ActionResult Registration()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_SignInLayout.cshtml";
+}
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel"><i class="bi bi-person-circle me-2"></i>Login</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" placeholder="Enter username" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter password" required />
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                    <div class="form-link mt-3">
+                        <small>Don't have an account? <a id="openRegister">Register here</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="registerModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content shadow">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-person-plus-fill me-2"></i>Register</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div id="step1">
+                        <h6 class="mt-2 mb-3">Employee Basic Details</h6>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Middle Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" placeholder="email@gmail.com" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Contact</label>
+                                <div class="input-group">
+                                    <select class="form-select" id="countryCode" style="max-width: 100px;" required>
+                                        <option value="+91" selected>+91 (IN)</option>
+                                        <option value="+1">+1 (US)</option>
+                                        <option value="+44">+44 (UK)</option>
+                                        <option value="+61">+61 (AU)</option>
+                                        <option value="+81">+81 (JP)</option>
+                                        <!-- Add more as needed -->
+                                    </select>
+                                    <input type="text" class="form-control" id="contactNumber" placeholder="Contact Number" required />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Joining Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Employee Role</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Choose Role</option>
+                                    <option>Admin</option>
+                                    <option>HR</option>
+                                    <option>Employee</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Employee Department</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Choose Department</option>
+                                    <option>Development</option>
+                                    <option>Sales</option>
+                                    <option>Marketing</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Employee Added Person Role</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Choose Role</option>
+                                    <option>Admin</option>
+                                    <option>HR</option>
+                                    <option>Employee</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Employee Added Person Department</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Choose Department</option>
+                                    <option>Development</option>
+                                    <option>Sales</option>
+                                    <option>Marketing</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Probation Period</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Is in Probation</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Choose Probation Status</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Report To</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Choose Employee for assigned to</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Emp Assigned to From date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-label">Address</label>
+                                <textarea class="form-control" cols="8" rows="6"></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Pin Code</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-12 d-grid mt-3">
+                                <button type="button" id="proceedBtn" class="btn btn-primary">Proceed</button>
+                            </div>
+
+                       
+                        </div>
+                    </div>
+                    <div id="step2" style="display: none;">
+                        <h6 class="mt-2 mb-3">Employee Document Details</h6>
+                        <div class="row g-3">
+                            <!-- Government ID -->
+                            <div class="col-md-6">
+                                <label class="form-label">Government ID Type</label>
+                                <select class="form-select" required>
+                                    <option selected disabled>Select ID Proof</option>
+                                    <option>Aadhar Card</option>
+                                    <option>PAN Card</option>
+                                    <option>Driving License</option>
+                                    <option>Passport</option>
+                                    <option>Voter ID</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">ID Number</label>
+                                <input type="text" class="form-control" placeholder="Enter ID Number" required />
+                            </div>
+
+                            <!-- Education -->
+                            <div class="col-md-12">
+                                <label class="form-label">Highest Education</label>
+                                <input type="text" class="form-control" placeholder="E.g., B.Tech in Computer Science" required />
+                            </div>
+
+                            <!-- Work Experience -->
+                            <div class="col-md-12">
+                                <label class="form-label">Work Experience</label>
+                                <input type="text" class="form-control" placeholder="E.g., 3 years in IT Industry" required />
+                            </div>
+
+                            <!-- Bank Details -->
+                            <div class="col-md-6">
+                                <label class="form-label">Bank Account Number</label>
+                                <input type="text" class="form-control" required />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">IFSC Code</label>
+                                <input type="text" class="form-control" required />
+                            </div>
+
+                            <!-- PF Details -->
+                            <div class="col-md-12">
+                                <label class="form-label">PF Number</label>
+                                <input type="text" class="form-control" placeholder="Enter PF Number (if any)" />
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Switch back to login -->
+                    <div class="text-center mt-3">
+                        <small>Already registered? <a id="openLogin" style="cursor:pointer; color: #002b5c;">Login here</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

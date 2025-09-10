@@ -6,30 +6,79 @@
     <title>@ViewData["Title"] - Employee_System_Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Employee_System_Web.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Employee_System_Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Sidebar Toggle Button -->
+            <button class="btn btn-outline-light me-3" id="toggleSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="#">Employee Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon bg-light"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" style="min-width: 220px;">
+                            <li class="px-3 py-2">
+                                <h6 class="mb-1"><i class="bi bi-person-fill text-primary me-2"></i>Chaitrali Shinde</h6>
+                                <small class="text-muted">
+                                    <i class="bi bi-calendar-event me-1"></i>Joined: Jan 10, 2021
+                                </small>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Logout Icon with Dropdown Confirmation -->
+                    <li class="nav-item dropdown ms-3">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-box-arrow-right fs-5 text-white" title="Logout"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow text-center" style="min-width: 220px;">
+                            <li class="px-3 py-2">
+                                <p class="mb-2">Are you sure you want to logout?</p>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-sm btn-secondary" data-bs-toggle="dropdown">Cancel</button>
+                                    <a href="logout.php" class="btn btn-sm btn-danger">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+    <!-- Main Layout -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="pt-3">
+                    <a href="#">Dashboard</a>
+                    <a href="#">Employees</a>
+                    <a href="#">Departments</a>
+                    <a href="#">Attendance</a>
+                    <a href="#">Payroll</a>
+                    <a href="#">Settings</a>
+                </div>
+            </nav>
+
+            <!-- Content Area 
+            <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4 content">
+                <h1>Welcome to Employee Management System</h1>
+                <p>This is your responsive dashboard layout using Bootstrap 5.</p>
+                <!-- Add charts, tables, cards, etc here 
+            </main>-->
+        </div>
+    </div>
+
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -44,6 +93,17 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/emphomepage.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
 </body>
 </html>
+ 

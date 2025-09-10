@@ -18,5 +18,54 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
+    background-color: #f8f9fa;
+   
+}
+.sidebar {
+    height: 100vh;
+    background-color: #002b5c;
+    color: white;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+}
+    .sidebar a:hover {
+        background-color: #003366; /* Slightly lighter navy */
+    }
+
+.content {
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #001f3f; /* Dark navy */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: white;
+}
+
+    .navbar .nav-link:hover {
+        color: #d4e6f1;
+    }
+
+@media (min-width: 768px) {
+    #sidebar.collapsed + .content {
+        margin-left: 60px;
+    }
+}
+/* When collapsed */
+.sidebar.collapsed {
+    width: 60px;
+}
+/* Hide text in collapsed state */
+.sidebar.collapsed a {
+    font-size: 0;
+    padding-left: 0.75rem;
+    white-space: nowrap;
 }
